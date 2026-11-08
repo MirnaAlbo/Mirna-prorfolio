@@ -1,0 +1,582 @@
+<!doctype html>
+<!--
+INFO1005 Website Design — Module 3.1
+MAGGIE SIMPSON RESPONSIVE PORTFOLIO — CODE-FIRST STARTER
+
+WHAT YOU ALREADY KNOW FROM MODULE 2.3
+- Bootstrap navbar and responsive grid
+- responsive images
+- cards
+- modal
+- accordion
+- carousel
+- custom CSS
+
+WHAT IS NEW IN MODULE 3.1
+1. Responsive display utility classes
+2. CSS variables for light and dark themes
+3. A Bootstrap theme switch using data-bs-theme
+4. Reusing ONE modal as a dynamic portfolio lightbox
+5. Small JavaScript that reads data-* attributes
+6. Stronger image, hover, focus and responsive CSS
+
+WORKFLOW
+EDIT -> SAVE -> REFRESH -> TEST
+
+Search for STEP and TODO_ in Visual Studio Code.
+-->
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mirna Bahnam Al Boka responsive creative portfolio demonstration">
+  <meta name="author" content="Mirna Bahnam Al Boka">
+  <title>Mirna Bahnam Al Boka | ICT Portfolio</title>
+
+  <!-- FAVICON — already supplied. Later replace these with your own favicon files. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="img/Mirna_logoo.jpeg">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/Mirna_logoo.jpeg">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/Mirna_logoo.jpeg">
+  <link rel="manifest" href="img/site.webmanifest">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your CSS comes last so it can style Bootstrap components. -->
+  <link href="css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR — the basic Bootstrap structure is already complete.
+
+     STEP 2A — RESPONSIVE DISPLAY UTILITIES
+     Replace:
+       TODO_BRAND_TEXT -> d-none d-sm-inline
+       TODO_PROCESS_LINK -> d-none d-lg-block
+
+     Meaning:
+       d-none d-sm-inline = hidden on XS, inline from SM upward
+       d-none d-lg-block  = hidden until LG, then displayed
+     ========================================================= -->
+<nav class="navbar navbar-expand-lg fixed-top site-nav" aria-label="Main navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#top" aria-label="Mirna Bahnam Al Boka home">
+      <img src="img/Mirna_logoo.jpeg" alt="Mirna Bahnam Al Boka icon" class="brand-icon rounded-circle">
+      <span class="d-none d-sm-inline">Mirna Bahnam Al Boka</span>
+    </a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#top">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#aboutme">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#process">Process</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contactme">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="pdf/Mirna_Bahnam_resume.pdf" target="_blank">Resume</a></li>
+      </ul>
+
+      <!-- =====================================================
+           STEP 3A — THEME SWITCH
+           Bootstrap form-switch markup is supplied.
+           The JavaScript at the bottom will make it work.
+           ===================================================== -->
+      <div class="form-check form-switch theme-switch">
+        <input class="form-check-input" type="checkbox" role="switch"
+               id="themeSwitch" aria-label="Toggle dark mode">
+        <label class="form-check-label" for="themeSwitch">Dark</label>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- =========================================================
+       HERO — responsive grid is already complete.
+
+       STEP 2B — RESPONSIVE DISPLAY UTILITY
+       Replace TODO_HERO_EXTRA with:
+       d-none d-md-block
+
+       Ask yourself: is this paragraph useful enough to keep on
+       a small phone screen?
+       ========================================================= -->
+  <header class="container hero-section">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-lg-7">
+        <p class="eyebrow" style="color: #ffffff !important; text-shadow: 0 0 8px rgba(53, 198, 200, 0.8);">ICT STUDENT.NETWORKING.DATABASE MANAGEMENT.CYBER SECURITY.WEB DESIGN.Programming</p>
+        <h1>Mirna Bahnam Al Boka </h1>
+        <p class="lead-copy">Hello and welcome to my ICT protfolio!</p>
+        <p class="d-none d-md-block">Explore my digital space, discover the projects I have created and see how technology inspires my ideas.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-brand" href="#portfolio">View portfolio</a>
+          <a class="btn btn-ghost" href="pdf/Mirna_Bahnam_resume.pdf" target="_blank">Open resume</a>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5 text-center">
+        <img src="img/Mirna-profile.png" class="img-fluid hero-img" alt="Portrait of Mirna Bahnam Al Boka">
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT — cards are review from Module 2.2 / 2.3 -->
+  <section class="container section-block" id="aboutme">
+    <div class="section-intro">
+      <p class="eyebrow">Profile snapshot</p>
+      <h2>About Me</h2>
+      <p>I am An ICT student interested in technology, networking, programming, databases and mobile phone repair.</p>
+    </div>
+  
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col">
+        <article class="card h-100 feature-card">
+          <img src="img/Mirna-profile.png" class="card-img-top" alt="Mirna Bahnam Al Boka profile photo">
+          <div class="card-body">
+            <h3 class="card-title">My Profile</h3>
+            <p class="card-text">I am an enthusiastic ICT student interested in technology and digital solutions. I enjoy learning how computers work, exploring programming and understanding computer networks.
+
+I am developing my skills in Java, database management, web design and mobile phone troubleshooting. I enjoy practical learning, solving technical challenges and improving my knowledge.
+
+My goal is to build my experience and continue growing in the ICT field.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col">
+        <article class="card h-100 feature-card">
+          <img src="img/Education.jpeg" class="card-img-top" alt="Education.jpeg">
+          <div class="card-body">
+            <h3 class="card-title">Education</h3>
+            <p class="card-text">ICT student  developing knowlege and practical skills in information technology, programming and computer networking.</p>
+            <ul>
+              <li>Diplomal of ICT-Western Sydney University</li>
+              <li> English language program-TAFE NSW</li>
+              <li>Bankstown Senior College</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="col">
+        <article class="card h-100 feature-card">
+          <img src="img/skills.jpeg" class="card-img-top" alt="skills.jpeg">
+          <div class="card-body">
+            <h3 class="card-title">Skills</h3>
+            <p class="card-text">I am developing practical skills in information technology, programming and technical support.</p>
+            <div class="skill-meter"><span style="width:70%">Computer Networking</span></div>
+            <div class="skill-meter"><span style="width:65%">SQL & Database Management</span></div>
+            <div class="skill-meter"><span style="width:75%">Java Programming</span></div>
+            <div class="skill-meter"><span style="width:60%">HTML & CSS</span></div>
+            <div class="skill-meter"><span style="width:85%">Mobile Phone Repair</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STEP 4 — DYNAMIC PORTFOLIO LIGHTBOX
+
+       The card + modal pattern is familiar from Module 2.3.
+       NEW IDEA: all six cards will reuse ONE modal.
+
+       Each button contains:
+       data-project-src
+       data-project-title
+       data-project-description
+
+       The JavaScript at the bottom reads these values and updates
+       the ONE modal before Bootstrap opens it.
+
+       STEP 2C — RESPONSIVE DISPLAY UTILITIES
+       Replace:
+         TODO_SM_CARD -> d-none d-sm-block
+         TODO_MD_CARD -> d-none d-md-block
+         TODO_LG_CARD -> d-none d-lg-block
+
+       This deliberately reduces content on smaller screens.
+       ========================================================= -->
+  <section class="container section-block" id="portfolio">
+    <div class="section-intro">
+      <p class="eyebrow" style="color: #ffffff !important; text-shadow: 0 0 8px rgba(53, 198, 200, 0.8);">Portfolio presentation</p>
+      <h2>Responsive lightbox gallery</h2>
+      <p>One Bootstrap modal can display different project images and descriptions.</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+
+      <div class="col">
+        <article class="card h-100 portfolio-card">
+          <img src="img/computer-networking.jpeg" class="card-img-top" alt="Illustration project thumbnail">
+          <div class="card-body">
+            <h3 class="card-title">Computer Networking</h3>
+            <p class="card-text">A practical learning project exploring computer networking concepts and networ communication.</p>
+            <button type="button" class="btn btn-brand open-lightbox"
+                    data-bs-toggle="modal" data-bs-target="#projectLightbox"
+                    data-project-src="img/computer-networking.jpeg"
+                    data-project-title="Computer Networking"
+                    data-project-description="A practical learning project exploring computer networking concepts and network communication.">
+              Open project
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <div class="col">
+        <article class="card h-100 portfolio-card">
+          <img src="img/database.png" class="card-img-top" alt="Photography project thumbnail">
+          <div class="card-body">
+            <h3 class="card-title">Database Management</h3>
+            <p class="card-text">A practical project demonstraing database design, data organisation and SQL queries.</p>
+            <button type="button" class="btn btn-brand open-lightbox"
+                    data-bs-toggle="modal" data-bs-target="#projectLightbox"
+                    data-project-src="img/database.png"
+                    data-project-title="database Management"
+                    data-project-description="A practical project demonstraing database design, data organisation and SQL queries.">
+              Open project
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <div class="col">
+        <article class="card h-100 portfolio-card">
+          <img src="img/java-programming.jpeg" class="card-img-top" alt="Magazine layout project thumbnail">
+          <div class="card-body">
+            <h3 class="card-title">Java Programming</h3>
+            <p class="card-text">A programming project demonstrating Java fundamentals, problem solving and basic application development.</p>
+            <button type="button" class="btn btn-brand open-lightbox"
+                    data-bs-toggle="modal" data-bs-target="#projectLightbox"
+                    data-project-src="img/java-programming.jpeg"
+                    data-project-title="java-Programming"
+                    data-project-description="A programming project demonstrating Java fundamentals, problem solving and basic application development.">
+              Open project
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <div class="col d-none d-sm-block">
+        <article class="card h-100 portfolio-card">
+          <img src="img/mobile-phone-repair.jpeg" class="card-img-top" alt="Motion concept thumbnail">
+          <div class="card-body">
+            <h3 class="card-title">Mobile Phone Repair</h3>
+            <p class="card-text"> practical experience in mobile phone troubleshooting, basic repairs and technical support.</p>
+            <button type="button" class="btn btn-brand open-lightbox"
+                    data-bs-toggle="modal" data-bs-target="#projectLightbox"
+                    data-project-src="img/mobile-phone-repair.jpeg"
+                    data-project-title="Mobile Phone Repair"
+                    data-project-description="practical experience in mobile phone troubleshooting, basic repairs and technical support.">
+              Open project
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <div class="col d-none d-md-block">
+        <article class="card h-100 portfolio-card">
+          <img src="img/HTML&CSS.jpeg" class="card-img-top" alt="Video project thumbnail">
+          <div class="card-body">
+            <h3 class="card-title">HTML & CSS Web Design</h3>
+            <p class="card-text"> A web  design project demonstrating HTML structure, CSS styling and responsive page layouts.</p>
+            <button type="button" class="btn btn-brand open-lightbox"
+                    data-bs-toggle="modal" data-bs-target="#projectLightbox"
+                    data-project-src="img/HTML&CSS.jpeg"
+                    data-project-title="HTML & CSS Web Design"
+                    data-project-description="A web design project demonstrating HTML structure, CSS styling and responsive page layouts.">
+              Open project
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <div class="col d-none d-lg-block">
+        <article class="card h-100 portfolio-card">
+          <img src="img/Algorithm-problem-solving.jpeg" class="card-img-top" alt="Interactive web project thumbnail">
+          <div class="card-body">
+            <h3 class="card-title">Problem Solving & Algorithms</h3>
+            <p class="card-text">A learning project applying algorithms, logical thinking and problem-solving techninques.</p>
+            <button type="button" class="btn btn-brand open-lightbox"
+                    data-bs-toggle="modal" data-bs-target="#projectLightbox"
+                    data-project-src="img/Algorithm-problem-solving.jpeg"
+                    data-project-title="Problem Solving & Algorithms"
+                    data-project-description="A learning project applying algorithms, logical thinking and problem-solving techninques.">
+              Open project
+            </button>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ONE reusable modal -->
+  <div class="modal fade" id="projectLightbox" tabindex="-1"
+       role="dialog" aria-labelledby="projectLightboxLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+      <div class="modal-content project-modal">
+        <div class="modal-header">
+          <h2 class="modal-title" id="projectLightboxLabel">Project title</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="img/portfolio1.jpg" class="img-fluid modal-project-img"
+               id="modalProjectImage" alt="Selected portfolio project">
+          <p id="modalProjectDescription" class="modal-description">Project description.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCORDION — review from Module 2.3 -->
+  <section class="container section-block" id="services">
+    <div class="section-intro">
+      <p class="eyebrow" style="color: #ffffff !important; text-shadow: 0 0 8px rgba(53, 198, 200, 0.8);">Technical services</p>
+      <h2>My Technical Services</h2>
+      <p> I provide  basic technical support, mobile phone troubleshooting and help with common technology problems.</p>
+    </div>
+
+    <div class="accordion services-accordion" id="what-I-can-help-with">
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#serviceOne"
+                  aria-expanded="true" aria-controls="serviceOne">
+            Mobile Phone Troubleshooting
+          </button>
+        </h3>
+        <div id="serviceOne" class="accordion-collapse collapse show" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">Identifying and troubleshooting common mobile phonr problems, including software nd connectivity issues.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#serviceTwo"
+                  aria-expanded="false" aria-controls="serviceTwo">
+             Basic Mobile Phone Repair 
+          </button>
+        </h3>
+        <div id="serviceTwo" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">basic mobile phone repairs and practical troubleshooting to help solve common device problem.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#serviceThree"
+                  aria-expanded="false" aria-controls="serviceThree">
+            Technical support
+          </button>
+        </h3>
+        <div id="serviceThree" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">Providing basic technical support and helping users solve common computer, software and connectivity problems.">Creative direction, feedback review and portfolio refinement.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STEP 2D — DESKTOP-ONLY ENHANCEMENT
+       Replace d-none d-lg-block :
+       d-none d-lg-block
+
+       This carousel is useful on a large screen, but optional
+       on a phone. Responsive design can include removing
+       non-essential content — not only rearranging it.
+       ========================================================= -->
+  <section class="container section-block d-none d-lg-block" id="process">
+    <div class="section-intro">
+      <p class="eyebrow" style="color: #ffffff !important; text-shadow: 0 0 8px rgba(53, 198, 200, 0.8);">How I work</p>
+      <h2>My Technical Process</h2>
+      <p>I will follow simple steps to understand technical problems and find practical solutions.</p>
+    </div>
+
+    <div id="processCarousel" class="carousel slide process-carousel" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/1.jpeg" class="d-block w-100" alt="Creative research slide">
+          <div class="carousel-caption">
+            <h3>Unerstand the Problems</h3>
+            <p>Understand the technical issue and identify what needs to be fixed.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/2.jpeg" class="d-block w-100" alt="Creative production slide">
+          <div class="carousel-caption">
+            <h3>Solve the Problem</h3>
+            <p>Explore different ideas and choose the best solution for the technical problem.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/3..jpeg" class="d-block w-100" alt="Creative testing slide">
+          <div class="carousel-caption">
+            <h3>Implement the Solution</h3>
+            <p>Turn the plan into a real solution by building and coding it efficiently.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#processCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#processCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM — HTML + basic Bootstrap grid/form classes -->
+  <section class="container section-block" id="contactme">
+    <div class="row g-4 align-items-start">
+      <div class="col-12 col-lg-5">
+        <p class="eyebrow" style="color: #ffffff !important; text-shadow: 0 0 8px rgba(53, 198, 200, 0.8);">Contact</p>
+        <h2>Get in Touch</h2>
+        <p>feel free to contact me about ICT opportunities,technical support or collaboration.</p>
+        <p class="d-none d-md-block">You can contact with me on LinkdIn to discuss ICT opportunities and collaboration.</p>
+      </div>
+
+      <div class="col-12 col-lg-7">
+        <form class="contact-form">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your name">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+
+            <div class="col-12">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Tell me about your project"></textarea>
+            </div>
+
+            <div class="col-12">
+              <button type="button" class="btn btn-brand">Demo button only</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+    <p>&copy; Mirna Bahnam Al Boka. Student demonstration site for INFO1005 Website Design.</p>
+    <p class="social-links">
+      <a href="https://www.linkedin.com/in/mirna-al-boka-4bb3623bb/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </p>
+  </div>
+</footer>
+
+<!-- Bootstrap powers collapse, modal, accordion and carousel. -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  /* =========================================================
+     STEP 3B — LIGHT / DARK MODE
+
+     Replace:
+       TODO_THEME_SELECTOR  -> #themeSwitch
+       TODO_STORAGE_KEY     -> maggie-theme
+       TODO_THEME_ATTRIBUTE -> data-bs-theme
+
+     Then SAVE -> REFRESH -> test the switch -> refresh again.
+     The theme should be remembered using localStorage.
+     ========================================================= */
+  const themeSwitch = document.querySelector('#themeSwitch');
+  const savedTheme = localStorage.getItem('maggi-theme') || 'light';
+  document.documentElement.setAttribute('data-bs-theme', savedTheme);
+
+  if (themeSwitch) {
+    themeSwitch.checked = savedTheme === 'dark';
+
+    themeSwitch.addEventListener('change', function () {
+      const selectedTheme = this.checked ? 'dark' : 'light';
+
+      document.documentElement.setAttribute('data-bs-theme', selectedTheme);
+      localStorage.setItem('maggi-theme', selectedTheme);
+    });
+  }
+
+  /* =========================================================
+     STEP 4 — DYNAMIC LIGHTBOX JAVASCRIPT
+
+     Replace:
+       TODO_PROJECT_BUTTONS -> .open-lightbox
+       TODO_MODAL_IMAGE     -> #modalProjectImage
+       TODO_MODAL_TITLE     -> #projectLightboxLabel
+       TODO_MODAL_DESC      -> #modalProjectDescription
+
+     Dataset property names:
+       data-project-src         -> dataset.projectSrc
+       data-project-title       -> dataset.projectTitle
+       data-project-description -> dataset.projectDescription
+
+     Complete the three TODO lines inside the click event.
+     ========================================================= */
+  const projectButtons = document.querySelectorAll('.open-lightbox');
+  const projectImage = document.querySelector('#modalProjectImage');
+  const projectTitle = document.querySelector('#projectLighboxLabel');
+  const projectDescription = document.querySelector('#modalprojectDescription');
+
+  projectButtons.forEach(function(button) {
+    button.addEventListener('click', function () {
+      projectImage.src = this.dataset.projectSrc;
+      projectImage.alt = this.dataset.projectTitle + ' full image';
+      projectTitle.textContent = this.dataset.projectTitle;
+      projectDescription.textContent = this.dataset.projectDescription;
+    });
+  });
+
+  /* STEP 6 — FINAL CHECK
+     Search this file for TODO_. There should be none left.
+     Test:
+     - navbar collapse
+     - light/dark switch and refresh
+     - every Open project button
+     - accordion
+     - desktop process carousel
+     - resume PDF
+     - phone / tablet / desktop layouts
+     Then validate index.html and css/custom.css.
+  */
+</script>
+
+</body>
+</html>
+ 
