@@ -1,1 +1,452 @@
+/* INFO1005 Website Design — Module 3.1
+   MAGGIE SIMPSON CODE-FIRST CSS
 
+   In Module 3.1 the visual design becomes more systematic.
+
+   Bootstrap = structure and component behaviour.
+   custom.css = theme variables, branding, images, hover/focus
+                and responsive refinement.
+*/
+
+:root {
+  --brand-primary: #7567f8;
+  --brand-secondary: #25304A;
+  --brand-accent: #35C6C8;
+
+  --page-bg: #F8F7FC;
+  --panel-bg: rgba(8, 20, 40, 0.85);
+  --card-bg:  rgba(8, 20, 40, 0.88);
+  --text-main: #25304A;
+  --text-soft: #526078;
+  --border-soft: #DFDCEF;
+
+  --font-body: 'Montserrat', Arial, sans-serif;
+  --font-heading: 'Oswald', Impact, sans-serif;
+}
+
+/* =========================================================
+   STEP 3C — DARK THEME VARIABLES
+
+   The JavaScript changes data-bs-theme on the <html> element.
+   CSS variables do the visual work.
+
+   Complete the TODO values:
+     page background   #111827
+     panel background  #1f2937
+     card background   #172033
+     main text         #f3f4f6
+     soft text         #d1d5db
+     border            #374151
+   ========================================================= */
+[data-bs-theme="dark"] {
+  --page-bg: #111827;
+  --panel-bg: #1f2937;
+  --card-bg: #172033;
+  --text-main: #f3f4f6;
+  --text-soft: #d1d5db;
+  --border-soft: #374151;
+}
+
+html {
+  font-size: 1rem;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--page-bg);
+  color: var(--text-main);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  color: var(--brand-primary);
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 6rem);
+  line-height: .95;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #7567F8, #35C6C8, #7567F8);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: nameShine 4s ease-in-out infinite;
+}
+
+h2 {
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+p, li, a, label, input, textarea, button {
+  font-family: var(--font-body);
+}
+
+p, li, label {
+  color: var(--text-main);
+}
+
+/* NAVIGATION */
+.site-nav {
+  background-color: var(--page-bg);
+  border-bottom: 3px solid var(--brand-primary);
+}
+
+.navbar-brand,
+.nav-link,
+.theme-switch label {
+  color: var(--text-main);
+}
+
+.nav-link:hover,
+.navbar-brand:hover {
+  color: var(--brand-primary);
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border: 3px solid var(--brand-primary);
+  margin-right: .5rem;
+}
+
+.form-check-input:checked {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* HERO */
+.hero-section {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+}
+
+.eyebrow {
+  color: #ffffff
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.lead-copy {
+  color: var(--text-main);
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.hero-img {
+  border: 10px solid var(--brand-primary);
+  border-radius: 2rem;
+  box-shadow: 16px 16px 0 var(--brand-accent);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-brand,
+.btn-ghost {
+  border: 2px solid var(--brand-primary);
+  border-radius: 999px;
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+
+.btn-brand {
+  background-color: var(--brand-primary);
+  color: #111827;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-main);
+}
+
+/* =========================================================
+   STEP 5A — BUTTON HOVER + FOCUS
+
+   Add a clear hover state AND keyboard focus state.
+   Use:
+     background-color: var(--brand-accent);
+     border-color: var(--brand-accent);
+
+   For :focus-visible use:
+     outline: 4px solid var(--brand-accent);
+     outline-offset: 3px;
+   ========================================================= */
+.btn-brand:hover {
+  /* TODO */
+}
+
+.btn-brand:focus-visible,
+.btn-ghost:focus-visible,
+.nav-link:focus-visible,
+.open-lightbox:focus-visible {
+  /* TODO */
+}
+
+/* GENERAL SECTIONS */
+.section-block {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.section-intro {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border: 2px solid var(--border-soft);
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+/* =========================================================
+   STEP 5B — IMAGE CONSISTENCY + HOVER
+
+   Add:
+   aspect-ratio: 4 / 3;
+   object-fit: cover;
+
+   Then give cards a small hover movement:
+   transform: translateY(-6px);
+   border-color: var(--brand-primary);
+   ========================================================= */
+.card-img-top {
+  /* TODO */
+}
+
+.feature-card,
+.portfolio-card {
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.feature-card:hover,
+.portfolio-card:hover {
+  /* TODO */
+}
+
+.standout {
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+.skill-meter {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  margin: 1rem 0 ;
+  overflow: hidden;
+}
+
+.skill-meter span {
+  display: block;
+  background-color: var(--brand-primary);
+  color: #111827;
+  font-weight: 700;
+  padding: .6rem 1rem;
+  border-radius:999px;
+  box-sizing: border-box;
+}
+
+/* DYNAMIC LIGHTBOX */
+.project-modal {
+  background-color: var(--page-bg);
+  color: var(--text-main);
+  border: 3px solid var(--brand-primary);
+  max-height: 65vh;
+  object-fit: contain;
+}
+
+.modal-project-img {
+  width: 100%;
+  border-radius: 1rem;
+  border: 2px solid var(--border-soft);
+}
+
+.modal-description {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+}
+
+/* ACCORDION */
+.services-accordion .accordion-item {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-soft);
+  color: var(--text-main);
+}
+
+.services-accordion .accordion-button {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.services-accordion .accordion-button:not(.collapsed) {
+  background-color: var(--panel-bg);
+  color: var(--brand-primary);
+}
+
+.accordion-body {
+  color: var(--text-soft);
+}
+
+/* PROCESS CAROUSEL */
+.process-carousel {
+  border: 4px solid var(--brand-primary);
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  height: 430px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background-color: rgba(17, 24, 39, .75);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.carousel-caption h3,
+.carousel-caption p {
+  color: #ffffff;
+}
+
+/* CONTACT */
+.contact-form {
+  background-color: var(--panel-bg);
+  border: 2px solid var(--border-soft);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+}
+
+.form-control {
+  background-color: var(--page-bg);
+  color: var(--text-main);
+  border: 2px solid var(--border-soft);
+}
+
+.form-control:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 .2rem rgba(51, 221, 255, .25);
+}
+
+/* FOOTER */
+.site-footer {
+  background-color: var(--panel-bg);
+  border-top: 3px solid var(--brand-primary);
+  padding: 2rem 0;
+}
+
+.social-links a {
+  color: var(--text-main);
+  font-size: 1.6rem;
+  margin-left: .8rem;
+}
+
+.social-links a:hover {
+  color: var(--brand-primary);
+}
+
+/* =========================================================
+   STEP 5C — SMALL SCREEN REFINEMENT
+
+   The Bootstrap grid already responds.
+   Your media query now refines visual design only.
+
+   Complete:
+   .hero-img box-shadow -> 8px 8px 0 var(--brand-accent)
+   .hero-actions .btn width -> 100%
+   ========================================================= */
+@media (max-width: 575.98px) {
+  .hero-section {
+    padding-top: 7rem;
+  }
+
+  .hero-img {
+    /* TODO */
+  }
+
+  .hero-actions .btn {
+    /* TODO */
+  }
+
+}
+  body {
+    background-color: #030819;
+  background-image:
+    linear-gradient(rgba(3, 8, 25, 0.25), rgba(3, 8, 25, 0.35)),
+    url("../img/eye.jpeg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: eyeMove 8s ease-in-out infinite alternate;
+  color: #ffffff;
+}
+
+section, header, footer{
+  background-color: transparent;
+}
+
+@keyframes eyeMove {
+  from {
+    background-position: center center;
+  }
+  to {
+    background-position: 55% 45%;
+  }
+}
+
+body {
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.65;
+
+  background-image:
+    radial-gradient(circle, #ffffff 2px, transparent 3px),
+    radial-gradient(circle, #35c6ff 3px, transparent 4px),
+    linear-gradient(35deg, transparent 49.7%, #35c6ff 50%, transparent 50.3%),
+    linear-gradient(125deg, transparent 49.7%, #7567f8 50%, transparent 50.3%);
+
+  background-size: 130px 130px, 190px 190px, 220px 220px, 260px 260px;
+  animation: networkDrift 12s ease-in-out infinite alternate;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes networkDrift {
+  from {
+    transform: translate(-2%, -2%);
+  }
+  to {
+    transform: translate(2%, 2%);
+  }
+}
+  
